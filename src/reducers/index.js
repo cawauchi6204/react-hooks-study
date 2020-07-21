@@ -23,12 +23,11 @@
 //     }
 // ]
 
-state = []
-state = [
-    { id: 1, title: 'タイトル1', body: 'ボディー1' },
-    { id: 2, title: 'タイトル2', body: 'ボディー2' },
-    { id: 3, title: 'タイトル3', body: 'ボディー3' },
-]
+// const state = [
+//     { id: 1, title: 'タイトル1', body: 'ボディー1' },
+//     { id: 2, title: 'タイトル2', body: 'ボディー2' },
+//     { id: 3, title: 'タイトル3', body: 'ボディー3' },
+// ]
 
 const events = (state = [], action) => {
     switch (action.type) {
@@ -36,9 +35,7 @@ const events = (state = [], action) => {
             const event = { title: action.title, body: action.body }
             const length = state.length
             const id =
-                length === 0 ?
-                    id = 1 :
-                    id = state[length - 1].id + 1
+                length === 0 ? 1 : state[length - 1].id + 1
             return [...state, { id, ...event }]
         case 'DELETE_EVENT':
             return state
@@ -48,6 +45,5 @@ const events = (state = [], action) => {
             return state;
     }
 }
-Reducerは引数を2つとる
 
 export default events
