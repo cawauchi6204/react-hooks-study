@@ -38,7 +38,8 @@ const events = (state = [], action) => {
                 length === 0 ? 1 : state[length - 1].id + 1
             return [...state, { id, ...event }]
         case 'DELETE_EVENT':
-            return state
+            return state.filter(event => event.id !== action.id)
+            // imutable
         case 'DELETE_ALL_EVENTS':
             return []
         default:
