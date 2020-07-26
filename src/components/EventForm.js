@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 
-const EventForm = ( { state, dispatch }) => {
+import { CREATE_EVENT, DELETE_ALL_EVENTS } from "../actions"
+
+const EventForm = ({ state, dispatch }) => {
     // const [state, dispatch] = useReducer(reducer, [])
     //  第一引数にはreducerを渡す
     //  第二引数にはdefaultの状態の指定
@@ -12,7 +14,7 @@ const EventForm = ( { state, dispatch }) => {
         e.preventDefault()
         console.log({ title, body })
         dispatch({
-            type: 'CREATE_EVENT',
+            type: CREATE_EVENT,
             title,
             body
         })
@@ -26,7 +28,7 @@ const EventForm = ( { state, dispatch }) => {
         e.preventDefault()
         const result = window.confirm('全てのイベントを本当に削除しても良いですか?')
         if (result) dispatch({
-            type: 'DELETE_ALL_EVENTS'
+            type: DELETE_ALL_EVENTS
         })
     }
 
