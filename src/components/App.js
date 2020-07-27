@@ -3,21 +3,18 @@ import React, { useReducer } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import EventForm from "./EventForm"
-
 import Events from './Events'
 import AppContext from "../contexts/AppContext"
 import reducer from '../reducers/index'
-
-console.log({ AppContext });
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, [])
 
   return (
-    <AppContext.Provider value={'Hello , I am a Provider.'}>
+    <AppContext.Provider value={{ state, dispatch }}>
       <div className="App container-fluid">
-        <EventForm state={state} dispatch={dispatch} />
-        <Events state={state} dispatch={dispatch} />
+        <EventForm />
+        <Events />
       </div>
     </AppContext.Provider>
   );
